@@ -97,6 +97,7 @@
 					</div>
 				</div>
 			@empty
+			<p>Belum ada product yang ditambahkan.</p>
 			@endforelse
 			</div>
 		</div>
@@ -136,6 +137,7 @@
 					</div>
 				</div>
 			@empty
+			<p>Belum ada Category yang ditambahkan.</p>
             @endforelse
 			</div>
 			<div class="row">

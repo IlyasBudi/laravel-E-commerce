@@ -19,19 +19,8 @@ class CartController extends Controller
 
         $my_carts = $user->carts()->with('product')->get();
 
-        $subTotal = 0;
-        foreach ($my_carts as $cart) {
-            $subTotal += $cart->product->price;
-        }
-
-        $ppn = $subTotal * 0.11; // PPN 11%
-        $grandTotal = $subTotal + $ppn;
-
         return view('front.carts', [
-            'my_carts' => $my_carts,
-            'subTotal' => $subTotal,
-            'ppn' => $ppn,
-            'grandTotal' => $grandTotal
+            'my_carts' => $my_carts
         ]);
     }
 

@@ -36,6 +36,13 @@
                         <x-input-error :messages="$errors->get('icon')" class="mt-2" />
                     </div>
 
+                    <!-- About -->
+                    <div class="mt-4">
+                        <x-input-label for="about" :value="__('About')" />
+                        <textarea name="about" id="about" cols="30" rows="5" class="w-full border border-slate-300 rounded-xl"></textarea>
+                        <x-input-error :messages="$errors->get('about')" class="mt-2" />
+                    </div>
+
                     <div class="flex items-center justify-end mt-4">
 
                         <x-primary-button class="ms-4">

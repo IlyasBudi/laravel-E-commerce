@@ -37,6 +37,7 @@ class CategoryController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'icon' => 'required|image|mimes:png,jpg,jpeg,svg',
+            'about' => 'required|string',
         ]);
 
         DB::beginTransaction();
@@ -88,6 +89,7 @@ class CategoryController extends Controller
         $validated = $request->validate([
             'name' => 'sometimes|string|max:255',
             'icon' => 'sometimes|image|mimes:png,jpg,jpeg,svg',
+            'about' => 'required|string',
         ]);
 
         DB::beginTransaction();

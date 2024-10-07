@@ -409,6 +409,16 @@ p:last-child {
   background-color: #162133;
 }
 
+button.boxed-btn {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  background-color: #F28123;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+}
+
 a.boxed-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
@@ -1004,6 +1014,17 @@ a.navbar-brand {
 
 a.navbar-brand:hover {
   opacity: 0.7;
+}
+
+button.boxed-btn {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+button.boxed-btn:hover {
+  background-color: #051922;
+  color: #F28123;
 }
 
 a.boxed-btn {

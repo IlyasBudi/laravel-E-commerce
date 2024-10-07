@@ -48,10 +48,7 @@ class ProductTransactionController extends Controller
 
         $validated = $request->validate([
             'address' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'proof' => 'required|image|mimes:png,jpeg,jpg',
             'notes' => 'required|string|max:65535',
-            'post_code' => 'required|integer',
             'phone_number' => 'required|integer',
         ]);
 
@@ -77,10 +74,10 @@ class ProductTransactionController extends Controller
             $validated['total_amount'] = $grandTotal;
             $validated['is_paid'] = false;
 
-            if($request->hasFile('proof')){
-                $proofPath = $request->file('proof')->store('payment_proofs', 'public');
-                $validated['proof'] = $proofPath;
-            }
+            // if($request->hasFile('proof')){
+            //     $proofPath = $request->file('proof')->store('payment_proofs', 'public');
+            //     $validated['proof'] = $proofPath;
+            // }
 
             $newTransaction = ProductTransaction::create($validated);
 
