@@ -31,6 +31,8 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{ asset('/template') }}/assets/css/responsive.css">
 
+	@stack('after-styles')
+
 </head>
 
 <body>
@@ -74,6 +76,8 @@
 	<script src="{{ asset('/template') }}/assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="{{ asset('/template') }}/assets/js/main.js"></script>
+
+	@stack('after-scripts')
 </body>
 
 

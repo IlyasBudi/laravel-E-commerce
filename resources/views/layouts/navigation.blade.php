@@ -59,6 +59,12 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- Landing Page -->
+                        <x-dropdown-link :href="route('front.index')">
+                            {{ __('Home') }}
+                        </x-dropdown-link>
+
+                        <!-- Account Management -->
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
