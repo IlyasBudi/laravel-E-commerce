@@ -9,6 +9,8 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProductTransactionController;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
+Route::get('/about', [FrontController::class, 'about'])->name('front.about');
+Route::get('/shop', [FrontController::class, 'shop'])->name('front.shop');
 Route::get('/search', [FrontController::class, 'search'])->name('front.search');
 Route::get('/details/{product:slug}', [FrontController::class, 'details'])->name('front.product.details');
 Route::get('/category/{category}', [FrontController::class, 'category'])->name('front.product.category');

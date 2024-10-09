@@ -43,6 +43,7 @@ class ProductController extends Controller
             'about' => 'required|string',
             'category_id' => 'required|integer',
             'price' => 'required|integer',
+            'quantity' => 'required|integer',
             'photo' => 'required|image|mimes:png,jpg,jpeg,svg',
         ]);
 
@@ -91,6 +92,7 @@ class ProductController extends Controller
             'about' => 'required|string',
             'category_id' => 'required|integer',
             'price' => 'required|integer',
+            'quantity' => 'required|integer',
             'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg', // Photo is optional
         ]);
 

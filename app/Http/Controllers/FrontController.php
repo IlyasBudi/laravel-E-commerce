@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -43,6 +44,21 @@ class FrontController extends Controller
         return view('front.search', [
             'products' => $products,
             'keyword' => $keyword,
+        ]);
+    }
+
+    public function about()
+    {
+        return view('front.about');
+    }
+
+    public function shop()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        return view('front.shop', [
+            'products' => $products,
+            'categories' => $categories,
         ]);
     }
 }

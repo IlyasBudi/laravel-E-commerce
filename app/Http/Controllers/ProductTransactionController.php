@@ -61,18 +61,17 @@ class ProductTransactionController extends Controller
             $cartItems = $user->carts;
 
             foreach($cartItems as $item) {
-                $subTotalCents += $item->product->price * 100;
+                $subTotalCents += $item->product->price * 100 * $item->quantity;
             }
 
             $taxCents = (int)round(11 * $subTotalCents / 100);
-            $insuranceCents = (int)round(23 * $subTotalCents / 100);
-            $grandTotalCents = $subTotalCents + $taxCents + $insuranceCents + $deliveryFeeCents;
+            $grandTotalCents = $subTotalCents + $taxCents;
 
             $grandTotal = $grandTotalCents / 100;
 
             $validated['user_id'] = $user->id;
             $validated['total_amount'] = $grandTotal;
-            $validated['is_paid'] = false;
+            $validated['is_paid'] = true;
 
             // if($request->hasFile('proof')){
             //     $proofPath = $request->file('proof')->store('payment_proofs', 'public');
@@ -86,7 +85,13 @@ class ProductTransactionController extends Controller
                     'product_transaction_id' => $newTransaction->id,
                     'product_id' => $item->product_id,
                     'price' => $item->product->price,
+                    'quantity' => $item->quantity,
                 ]);
+
+                // Kurangi quantity produk
+                $product = $item->product;
+                $product->quantity -= $item->quantity;
+                $product->save();
 
                 $item->delete();
             }

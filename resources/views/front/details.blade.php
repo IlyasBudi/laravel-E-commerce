@@ -31,12 +31,12 @@
 				<div class="col-md-7">
 					<div class="single-product-content">
 						<h3>{{ $product->name }}</h3>
-						<p class="single-product-pricing"><span>Per Kg</span> Rp {{ $product->price }}</p>
+						<p class="single-product-pricing"><span>Stock: 2</span> Rp {{ $product->price }}</p>
 						<p>{{ $product->about }}</p>
 						<div class="single-product-form">
 						<form action="{{ route('carts.store', $product->id) }}" method="POST">
 						@csrf
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							<button type="submit" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
 						</form>
 							<p><strong>Categories: </strong>{{ $product->category->name }}</p>
 						</div>

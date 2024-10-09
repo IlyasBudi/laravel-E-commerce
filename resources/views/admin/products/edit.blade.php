@@ -37,6 +37,14 @@
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
 
+                    <!-- Quantity -->
+                    <div class="mt-4">
+                        <x-input-label for="quantity" :value="__('Stock')" />
+                        <x-text-input id="quantity" class="block w-full mt-1" type="number" name="quantity"
+                            value="{{ old('quantity', $product->quantity) }}" required autofocus autocomplete="quantity" />
+                        <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
+                    </div>
+
                     <!-- Category -->
                     <div class="mt-4">
                         <x-input-label for="category" :value="__('Category')" />

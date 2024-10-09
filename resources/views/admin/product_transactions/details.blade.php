@@ -63,6 +63,9 @@
                                             {{ $detail->product->name }}
                                         </h3>
                                         <p class="text-base text-slate-500">
+                                            Qty: {{ $detail->quantity }}
+                                        </p>
+                                        <p class="text-base text-slate-500">
                                             Rp {{ $detail->product->price }}
                                         </p>
                                     </div>
@@ -89,22 +92,6 @@
                             </div>
                             <div class="flex flex-row items-center justify-between item-card">
                                 <p class="text-base text-slate-500">
-                                    City
-                                </p>
-                                <h3 class="text-lg font-bold md:text-xl text-indigo-950">
-                                    {{ $productTransaction->city }}
-                                </h3>
-                            </div>
-                            <div class="flex flex-row items-center justify-between item-card">
-                                <p class="text-base text-slate-500">
-                                    Post Code
-                                </p>
-                                <h3 class="text-lg font-bold md:text-xl text-indigo-950">
-                                    {{ $productTransaction->post_code }}
-                                </h3>
-                            </div>
-                            <div class="flex flex-row items-center justify-between item-card">
-                                <p class="text-base text-slate-500">
                                     Phone Number
                                 </p>
                                 <h3 class="text-lg font-bold md:text-xl text-indigo-950">
@@ -120,14 +107,6 @@
                                 </h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex flex-col items-center col-span-1 md:items-end md:col-span-2 gap-y-5">
-                        <h3 class="text-xl font-bold text-indigo-950">
-                            Proof of Payment
-                        </h3>
-                        <img src="{{ Storage::url($productTransaction->proof) }}"
-                            alt="{{ Storage::url($productTransaction->proof) }}"
-                            class="w-full md:w-[300px] h-auto md:h-[400px]">
                     </div>
                 </div>
                 <hr class="my-3">

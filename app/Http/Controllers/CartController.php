@@ -21,7 +21,7 @@ class CartController extends Controller
 
         $subTotal = 0;
         foreach ($my_carts as $cart) {
-            $subTotal += $cart->product->price;
+            $subTotal += $cart->product->price * $cart->quantity;
         }
 
         $ppn = $subTotal * 0.11; // PPN 11%
@@ -29,9 +29,9 @@ class CartController extends Controller
 
         return view('front.carts', [
             'my_carts' => $my_carts,
-            // 'subTotal' => $subTotal,
-            // 'ppn' => $ppn,
-            // 'grandTotal' => $grandTotal
+            'subTotal' => $subTotal,
+            'ppn' => $ppn,
+            'grandTotal' => $grandTotal
         ]);
     }
 
@@ -50,18 +50,22 @@ class CartController extends Controller
     {
         $user = Auth::user();
 
-        // $existingCartItem = Cart::where('user_id', $user->id)->where('product_id', $productId)->first();
+        $existingCartItem = Cart::where('user_id', $user->id)->where('product_id', $productId)->first();
 
-        // if($existingCartItem) {
-        //     return redirect()->route('carts.index');
-        // }
+        if($existingCartItem) {
+            // Jika item sudah ada, tambahkan quantity
+            $existingCartItem->quantity += 1;
+            $existingCartItem->save();
+            return redirect()->route('carts.index');
+        }
 
         DB::beginTransaction();
 
         try {
-            $cart = Cart::Create([
+            $cart = Cart::updateOrCreate([
                 'user_id' => $user->id,
                 'product_id' => $productId,
+                'quantity' => 1,
             ]);
 
             $cart->save();

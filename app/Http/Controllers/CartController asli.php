@@ -19,8 +19,19 @@ class CartController extends Controller
 
         $my_carts = $user->carts()->with('product')->get();
 
+        // $subTotal = 0;
+        // foreach ($my_carts as $cart) {
+        //     $subTotal += $cart->product->price;
+        // }
+
+        // $ppn = $subTotal * 0.11; // PPN 11%
+        // $grandTotal = $subTotal + $ppn;
+
         return view('front.carts', [
-            'my_carts' => $my_carts
+            'my_carts' => $my_carts,
+            // 'subTotal' => $subTotal,
+            // 'ppn' => $ppn,
+            // 'grandTotal' => $grandTotal
         ]);
     }
 
@@ -42,6 +53,9 @@ class CartController extends Controller
         $existingCartItem = Cart::where('user_id', $user->id)->where('product_id', $productId)->first();
 
         if($existingCartItem) {
+            // Jika item sudah ada, tambahkan quantity
+            $existingCartItem->quantity += 1;
+            $existingCartItem->save();
             return redirect()->route('carts.index');
         }
 
@@ -51,6 +65,7 @@ class CartController extends Controller
             $cart = Cart::updateOrCreate([
                 'user_id' => $user->id,
                 'product_id' => $productId,
+                'quantity' => 1,
             ]);
 
             $cart->save();

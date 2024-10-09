@@ -12,10 +12,10 @@
 					<div class="hero-text">
 						<div class="hero-text-tablecell">
 							<p class="subtitle">Fresh & Organic</p>
-							<h1>Delicious Seasonal Fruits</h1>
+							<h1>Delicious Vegetables & Fruits</h1>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Fruit Collection</a>
-								<a href="contact.html" class="bordered-btn">Contact Us</a>
+								<a href="{{ route('front.shop') }}" class="boxed-btn">See Collection</a>
+								<a href="#about" class="bordered-btn">About Us</a>
 							</div>
 						</div>
 					</div>
@@ -36,8 +36,8 @@
 							<i class="fas fa-shipping-fast"></i>
 						</div>
 						<div class="content">
-							<h3>Free Shipping</h3>
-							<p>When order over $75</p>
+							<h3>Shipping</h3>
+							<p>Fast and safe delivery</p>
 						</div>
 					</div>
 				</div>
@@ -55,11 +55,11 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="list-box d-flex justify-content-start align-items-center">
 						<div class="list-icon">
-							<i class="fas fa-sync"></i>
+							<i class="fas fa-money-bill-alt"></i>
 						</div>
 						<div class="content">
-							<h3>Refund</h3>
-							<p>Get refund within 3 days!</p>
+							<h3>Best Price</h3>
+							<p>Best quality with low price</p>
 						</div>
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">Our</span> Products</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<p>Setiap produk kami dipastikan bebas dari bahan kimia berbahaya dan diproses dengan cara yang menjaga kesegarannya.</p>
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="{{ Storage::url($product->photo) }}" alt=""></a>
+							<a href="{{ route('front.product.details', $product->slug) }}"><img src="{{ Storage::url($product->photo) }}" alt=""></a>
 						</div>
 						<h3>{{ $product->name }}</h3>
 						<p class="product-price"> Rp {{ $product->price }} </p>
@@ -112,7 +112,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">Our</span> Category</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<p>Kami menawarkan berbagai kategori produk yang dipilih dengan cermat untuk memastikan Anda mendapatkan yang terbaik dari alam.</p>
 					</div>
 				</div>
 			</div>
@@ -123,15 +123,15 @@
 				
 					<div class="single-latest-news">
 					
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1" style="background-image: url('{{ Storage::url($category->icon) }}');"></div></a>
+						<a href="{{ route('front.product.category', $category) }}"><div class="latest-news-bg news-bg-1" style="background-image: url('{{ Storage::url($category->icon) }}');"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">{{ $category->name }}</a></h3>
+							<h3><a href="{{ route('front.product.category', $category) }}">{{ $category->name }}</a></h3>
 							<!-- <p class="blog-meta">
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
 								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
 							</p> -->
 							<p class="excerpt">{{ $category->about }}.</p>
-							<a href="single-news.html" class="read-more-btn">See Products <i class="fas fa-angle-right"></i></a>
+							<a href="{{ route('front.product.category', $category) }}" class="read-more-btn">See Products <i class="fas fa-angle-right"></i></a>
 						</div>
 					
 					</div>
@@ -142,7 +142,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<a href="news.html" class="boxed-btn">More News</a>
+					<a href="{{ route(name: 'front.shop') }}" class="boxed-btn">See All</a>
 				</div>
 			</div>
 		</div>
@@ -150,7 +150,7 @@
 	<!-- end latest news -->
 
     <!-- advertisement section -->
-	<div class="abt-section mb-150">
+	<div class="abt-section mb-150" id="about">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
@@ -162,9 +162,9 @@
 					<div class="abt-text">
 						<p class="top-sub">Sehat, Segar, Alami.</p>
 						<h2>We are <span class="orange-text">FreshHarvest</span></h2>
-						<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
+						<p>FreshHarvest adalah platform e-commerce terdepan yang berfokus pada penyediaan buah dan sayuran segar berkualitas tinggi langsung dari petani lokal ke pintu rumah Anda. Kami berdedikasi untuk menyediakan produk yang sehat dan alami, memastikan setiap pelanggan mendapatkan manfaat dari produk segar yang kami tawarkan.</p>
+						<p>FreshHarvest menawarkan berbagai macam buah dan sayuran segar yang dipilih dengan cermat untuk memastikan kualitas dan kesegaran. Dari buah tropis yang manis hingga sayuran hijau yang renyah, kami memiliki semua yang Anda butuhkan untuk memenuhi kebutuhan nutrisi harian Anda.</p>
+						<a href="{{ route('front.about') }}" class="boxed-btn mt-4">know more</a>
 					</div>
 				</div>
 			</div>

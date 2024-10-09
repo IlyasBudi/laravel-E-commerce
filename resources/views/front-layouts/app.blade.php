@@ -7,7 +7,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>Fruitkha</title>
+	<title>FreshHarvest</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{{ asset('/template') }}/assets/img/favicon.png">
@@ -37,11 +37,11 @@
 
 <body>
     <!--PreLoader-->
-    <div class="loader">
+    <!-- <div class="loader">
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
-    </div>
+    </div> -->
     <!--PreLoader Ends-->
 
     <!-- header -->

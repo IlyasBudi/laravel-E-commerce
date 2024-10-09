@@ -83,7 +83,7 @@
                         Sub Total
                     </p>
                     <p class="text-base font-semibold first:font-normal" id="checkout-sub-total">
-                        Rp {{ number_format($subTotal) }}
+
                     </p>
                 </li>
                 <li class="flex items-center justify-between">
@@ -91,7 +91,7 @@
                         PPN 11%
                     </p>
                     <p class="text-base font-semibold first:font-normal" id="checkout-ppn">
-                        Rp {{ number_format($ppn) }}
+
                     </p>
                 </li>
                 <!-- <li class="flex items-center justify-between">
@@ -115,7 +115,7 @@
                         Grand Total
                     </p>
                     <p class="text-base font-bold first:font-normal text-primary" id="checkout-grand-total">
-                        Rp {{ number_format($grandTotal) }}
+
                     </p>
                 </li>
             </ul>
@@ -180,7 +180,7 @@
                     Grand Total
                 </p>
                 <p class="text-lg min-[350px]:text-2xl font-bold text-white" id="checkout-grand-total-price">
-                    Rp {{ number_format($grandTotal) }}
+
                 </p>
             </div>
             <button type="submit"
@@ -205,7 +205,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="{{ asset('scripts/global.js') }}"></script>
-    <!-- <script>
+    <script>
         function calculatePrice() {
             let total = 0;
 
@@ -214,6 +214,11 @@
                 total += parseFloat(item.getAttribute('data-price'));
                 subTotal = total * {{ $cart->quantity }};
             });
+
+            // document.getElementById('checkout-delivery-fee').textContent = 'Rp ' + deliveryFee.toLocaleString('id', {
+            //     minimumFractionDigits: 2,
+            //     maximumFractionDigits: 2
+            // });
 
             document.getElementById('checkout-sub-total').textContent = 'Rp ' + subTotal.toLocaleString('id', {
                 minimumFractionDigits: 2,
@@ -225,6 +230,12 @@
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
+
+            // const insurance = 23 * subTotal / 100;
+            // document.getElementById('checkout-insurance').textContent = 'Rp ' + insurance.toLocaleString('id', {
+            //     minimumFractionDigits: 2,
+            //     maximumFractionDigits: 2
+            // });
 
             const grandTotalPrice = subTotal + tax;
             document.getElementById('checkout-grand-total').textContent = 'Rp ' + grandTotalPrice.toLocaleString('id', {
@@ -243,7 +254,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             calculatePrice();
         });
-    </script> -->
+    </script>
 <!-- Add the script for validation -->
 <script>
         document.getElementById('phonenumber__').addEventListener('input', function (e) {
