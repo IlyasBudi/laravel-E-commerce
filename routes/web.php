@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{productId}', [CartController::class, 'store'])->middleware('role:buyer')->name('carts.store');
 
     Route::resource('product_transactions', ProductTransactionController::class)->middleware('role:owner|buyer');
+Route::post('/product_transactions', [ProductTransactionController::class, 'store'])->middleware('auth')->name('product_transactions.store');
+
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('products', ProductController::class)->middleware('role:owner');

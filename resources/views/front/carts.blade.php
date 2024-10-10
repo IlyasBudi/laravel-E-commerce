@@ -3,21 +3,21 @@
 @section('title', 'Welcome')
 
 @section('content')
-	
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Check Out Product</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end breadcrumb section -->
+
+    <!-- breadcrumb-section -->
+    <div class="breadcrumb-section breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Fresh and Organic</p>
+                        <h1>Check Out Product</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end breadcrumb section -->
 
     <!-- Items -->
     <section class="wrapper flex flex-col gap-2.5">
@@ -26,8 +26,8 @@
                 Items
             </p>
             <button type="button" class="p-2 bg-white rounded-full" data-expand="itemsList">
-                <img src="{{ asset('assets/svgs/ic-chevron.svg') }}"
-                    class="transition-all duration-300 -rotate-180 size-5" alt="">
+                <img src="{{ asset('assets/svgs/ic-chevron.svg') }}" class="transition-all duration-300 -rotate-180 size-5"
+                    alt="">
             </button>
         </div>
         <div class="flex flex-col gap-4" id="itemsList">
@@ -95,21 +95,21 @@
                     </p>
                 </li>
                 <!-- <li class="flex items-center justify-between">
-                    <p class="text-base font-semibold first:font-normal">
-                        Insurance 23%
-                    </p>
-                    <p class="text-base font-semibold first:font-normal" id="checkout-insurance">
+                                                <p class="text-base font-semibold first:font-normal">
+                                                    Insurance 23%
+                                                </p>
+                                                <p class="text-base font-semibold first:font-normal" id="checkout-insurance">
 
-                    </p>
-                </li> -->
+                                                </p>
+                                            </li> -->
                 <!-- <li class="flex items-center justify-between">
-                    <p class="text-base font-semibold first:font-normal">
-                        Delivery (Promo)
-                    </p>
-                    <p class="text-base font-semibold first:font-normal" id="checkout-delivery-fee">
+                                                <p class="text-base font-semibold first:font-normal">
+                                                    Delivery (Promo)
+                                                </p>
+                                                <p class="text-base font-semibold first:font-normal" id="checkout-delivery-fee">
 
-                    </p>
-                </li> -->
+                                                </p>
+                                            </li> -->
                 <li class="flex items-center justify-between">
                     <p class="text-base font-bold first:font-normal">
                         Grand Total
@@ -123,16 +123,19 @@
     </section>
 
     <!-- Delivery to -->
+    <!-- Delivery to -->
     <section class="wrapper flex flex-col gap-2.5 pb-20">
         <div class="flex items-center justify-between">
             <p class="text-base font-bold">
                 Delivery to
             </p>
             <button type="button" class="p-2 bg-white rounded-full" data-expand="deliveryForm">
-                <img src="{{ asset('assets/svgs/ic-chevron.svg') }}"
-                    class="transition-all duration-300 -rotate-180 size-5" alt="">
+                <img src="{{ asset('assets/svgs/ic-chevron.svg') }}" class="transition-all duration-300 -rotate-180 size-5"
+                    alt="">
             </button>
         </div>
+
+        <!-- Mulai form di sini -->
         <form action="{{ route('product_transactions.store') }}" method="POST" class="p-6 bg-white rounded-3xl"
             id="deliveryForm" enctype="multipart/form-data">
             @csrf
@@ -143,24 +146,14 @@
                     <input style="background-image: url('{{ asset('assets/svgs/ic-location.svg') }}')" type="text"
                         name="address" id="address__" class="form-input" value="Tedjamudita 3">
                 </div>
-                <!-- City -->
-                <!-- <div class="flex flex-col gap-2.5">
-                    <label for="city" class="text-base font-semibold">City</label>
-                    <input style="background-image: url('{{ asset('assets/svgs/ic-map.svg') }}')" type="text"
-                        name="city" id="city__" class="form-input" value="Bolavia">
-                </div> -->
-                <!-- Post Code -->
-                <!-- <div class="flex flex-col gap-2.5">
-                    <label for="postcode" class="text-base font-semibold">Post Code</label>
-                    <input style="background-image: url('{{ asset('assets/svgs/ic-house.svg') }}')" type="number"
-                        name="post_code" id="postcode__" class="form-input" value="22081882">
-                </div> -->
+
                 <!-- Phone Number -->
                 <div class="flex flex-col gap-2.5">
                     <label for="phonenumber" class="text-base font-semibold">Phone Number</label>
                     <input style="background-image: url('{{ asset('assets/svgs/ic-phone.svg') }}')" type="text"
                         name="phone_number" id="phonenumber__" class="form-input" value="602192301923">
                 </div>
+
                 <!-- Add. Notes -->
                 <div class="flex flex-col gap-2.5">
                     <label for="notes" class="text-base font-semibold">Add. Notes</label>
@@ -171,38 +164,50 @@
                     </span>
                 </div>
             </div>
-    </section>
-    <div
-        class="relative z-50 bottom-[50px] bg-black rounded-3xl p-5 left-1/2 -translate-x-1/2 w-[calc(100dvw-32px)] max-w-[425px]">
-        <section class="flex items-center justify-between gap-5">
-            <div>
-                <p class="text-sm text-grey mb-0.5">
-                    Grand Total
-                </p>
-                <p class="text-lg min-[350px]:text-2xl font-bold text-white" id="checkout-grand-total-price">
-                    Rp {{ number_format($grandTotal) }}
-                </p>
-            </div>
-            <button type="submit"
-                class="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white rounded-full w-max whitespace-nowrap"
-                style="background-color: #F28123;">
-                Confirm
-            </button>
-        </section>
-    </div>
 
-    </form>
+            <!-- Pindahkan tombol submit ke dalam form -->
+            <div
+                class="relative z-50 bottom-[50px] bg-black rounded-3xl p-5 left-1/2 -translate-x-1/2 w-[calc(100dvw-32px)] max-w-[425px]">
+                <section class="flex items-center justify-between gap-5">
+                    <div>
+                        <p class="text-sm text-grey mb-0.5">Grand Total</p>
+                        <p class="text-lg min-[350px]:text-2xl font-bold text-white" id="checkout-grand-total-price">
+                            Rp {{ number_format($grandTotal) }}
+                        </p>
+                    </div>
+
+                    <button type="submit"
+                        class="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white rounded-full w-max whitespace-nowrap"
+                        style="background-color: #F28123;">
+                        Confirm
+                    </button>
+                </section>
+            </div>
+        </form>
+        <!-- Akhir form -->
+    </section>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- end checkout section -->
 @endsection
 
 @push('after-styles')
-	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
-	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-	<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 @endpush
 
 @push('after-scripts')
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="{{ asset('scripts/global.js') }}"></script>
     <!-- <script>
@@ -212,7 +217,7 @@
 
             document.querySelectorAll('.product-price').forEach(item => {
                 total += parseFloat(item.getAttribute('data-price'));
-                subTotal = total * {{ $cart->quantity }};
+                {{-- subTotal = total * {{ $cart->quantity }}; --}}
             });
 
             document.getElementById('checkout-sub-total').textContent = 'Rp ' + subTotal.toLocaleString('id', {
@@ -244,10 +249,10 @@
             calculatePrice();
         });
     </script> -->
-<!-- Add the script for validation -->
-<script>
-        document.getElementById('phonenumber__').addEventListener('input', function (e) {
+    <!-- Add the script for validation -->
+    <script>
+        document.getElementById('phonenumber__').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
-</script>
+    </script>
 @endpush

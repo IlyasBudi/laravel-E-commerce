@@ -113,7 +113,7 @@
 
                 @role('owner')
                     @if ($productTransaction->is_paid)
-                        <a href="#"
+                        <a href="https://wa.me/{{ $productTransaction->phone_number }}"
                             class="w-full px-5 py-3 font-bold text-center text-white bg-indigo-700 rounded-full md:w-fit">
                             WhatsApp Customer
                         </a>
